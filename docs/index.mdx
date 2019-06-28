@@ -8,3 +8,56 @@ route: /
 </div>
 
 > 一个基于ant-design的Table组件
+
+import { Playground } from 'docz';
+import Table from '@table/index';
+
+<Playground>
+  <Table
+    columns={[
+      {
+        title: '姓名',
+        dataIndex: 'name',
+        key: 'name',
+      },
+      {
+        title: '年龄123434343434343',
+        dataIndex: 'age',
+        key: 'age',
+        filters: [
+          {
+            text: 'London',
+            value: 'London',
+          },
+          {
+            text: 'New York',
+            value: 'New York',
+          },
+        ],
+      },
+      {
+        title: '住址',
+        dataIndex: 'address',
+        key: 'address',
+      },
+    ]}
+    data={{
+      list: [
+        {
+          id: '1',
+          name: '胡彦斌',
+          age: 32,
+          address: '西湖区湖底公园1号',
+        },
+        {
+          id: '2',
+          name: '胡彦祖',
+          age: 42,
+          address: '西湖区湖底公园1号',
+        },
+      ]
+    }}
+  />
+</Playground>
+
+
