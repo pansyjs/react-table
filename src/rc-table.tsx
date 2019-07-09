@@ -28,7 +28,7 @@ interface IProps<T> extends TableProps<T> {
   ) => void;
 }
 
-const StandardTable: React.FC<IProps<any>> = props => {
+const RcTable: React.FC<IProps<any>> = props => {
   const {
     className,
     style,
@@ -55,7 +55,7 @@ const StandardTable: React.FC<IProps<any>> = props => {
     showSizeChanger: true,
     showQuickJumper: true,
     showTotal: handleShowTotal,
-    pageSizeOptions: ['10', '30', '50'],
+    pageSizeOptions: ['10', '50', '100'],
     ...pagination
   };
 
@@ -102,8 +102,8 @@ const StandardTable: React.FC<IProps<any>> = props => {
   );
 };
 
-StandardTable.defaultProps = {
+RcTable.defaultProps = {
   rowKey: 'id'
 };
 
-export default StandardTable;
+export default RcTable;
