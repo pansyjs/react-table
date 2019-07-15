@@ -21,6 +21,7 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
+    "@alitajs/autils": "^0.1.2",
     "antd": "^3.19.8",
     "classnames": "^2.2.6"
   },

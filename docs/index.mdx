@@ -12,6 +12,8 @@ route: /
 import { Playground } from 'docz';
 import Table from '@table/index';
 
+## 基本使用
+
 <Playground>
   <Table
     columns={[
@@ -56,6 +58,57 @@ import Table from '@table/index';
           address: '西湖区湖底公园1号',
         },
       ]
+    }}
+  />
+</Playground>
+
+## 不显示分页
+
+<Playground>
+  <Table
+    columns={[
+      {
+        title: '姓名',
+        dataIndex: 'name',
+        key: 'name',
+      },
+      {
+        title: '年龄',
+        dataIndex: 'age',
+        key: 'age',
+        filters: [
+          {
+            text: 'London',
+            value: 'London',
+          },
+          {
+            text: 'New York',
+            value: 'New York',
+          },
+        ],
+      },
+      {
+        title: '住址',
+        dataIndex: 'address',
+        key: 'address',
+      },
+    ]}
+    data={{
+      list: [
+        {
+          id: '1',
+          name: '胡彦斌',
+          age: 32,
+          address: '西湖区湖底公园1号',
+        },
+        {
+          id: '2',
+          name: '胡彦祖',
+          age: 42,
+          address: '西湖区湖底公园1号',
+        },
+      ],
+      pagination: false
     }}
   />
 </Playground>

@@ -7,13 +7,14 @@ import {
   SorterResult,
   TableCurrentDataSource
 } from 'antd/es/table';
+import { isBoolean } from '@alitajs/autils';
 import './rc-table.less';
 
 const prefixCls = 'rc-table';
 
 export interface ITableData<T> {
   list: T[];
-  pagination?: PaginationConfig;
+  pagination?: PaginationConfig | false;
 }
 
 interface IProps<T> extends TableProps<T> {
@@ -51,13 +52,17 @@ const RcTable: React.FC<IProps<any>> = props => {
     return `共 ${total} 条`;
   };
 
-  const paginationProps = {
-    showSizeChanger: true,
-    showQuickJumper: true,
-    showTotal: handleShowTotal,
-    pageSizeOptions: ['10', '50', '100'],
-    ...pagination
-  };
+  let paginationProps = {};
+
+  if (!isBoolean(pagination)) {
+    paginationProps = {
+      showSizeChanger: true,
+      showQuickJumper: true,
+      showTotal: handleShowTotal,
+      pageSizeOptions: ['10', '50', '100'],
+      ...pagination
+    };
+  }
 
   const handleRowSelectChange = (
     selectedRowKeys: string[] | number[],
@@ -94,7 +99,7 @@ const RcTable: React.FC<IProps<any>> = props => {
       rowKey={rowKey}
       dataSource={list}
       rowSelection={onSelectRow ? rowSelection : null}
-      pagination={paginationProps}
+      pagination={isBoolean(pagination) ? pagination : paginationProps}
       onChange={handleTableChange}
       expandIcon={props.expandedRowRender ? customExpandIcon : null}
       {...restProps}
