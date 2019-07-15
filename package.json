@@ -1,6 +1,6 @@
 {
   "name": "@jiumao/rc-table",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "react table component",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
